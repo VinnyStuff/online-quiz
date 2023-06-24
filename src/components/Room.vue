@@ -1,13 +1,56 @@
 <template>
-    <v-card width="400" title="This is a title" subtitle="This is a subtitle" text="This is content">
-        <v-btn icon="mdi-google-classroom" size="x-large"></v-btn>
+    <v-card class="card">
+        <v-icon class="class-icon" icon="mdi-google-classroom" size="35px"></v-icon>
+
+        <div class="class-title-container"> 
+            <v-card-title class="class-title">Lorem ipsum dolor sit amet.</v-card-title>
+        </div>
+
+        <div class="players-container">
+            <v-icon class="player-icon" icon="mdi-account-outline" size="large"></v-icon>
+            <v-card-subtitle class="amount-players">0/6</v-card-subtitle>
+        </div>
     </v-card>
 </template>
 
-<script setup>
-</script>
-
 <script>
-</script>
+export default {
+    props: {
+        icon: String,
+        title: String,
+        players: Number,
+        playersLimit: Number,
+    },
+}
+</script>   
 
-<style scoped></style>
+<style scoped>
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 15px;
+}
+.class-icon{
+    padding: 20px;
+}
+.class-title-container{
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap; 
+}
+.class-title{
+    padding: 0 14px;
+}
+.players-container{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+.amount-players{
+    padding: 0;
+    margin-left: 5px;
+    font-weight: 700;
+}
+</style>
